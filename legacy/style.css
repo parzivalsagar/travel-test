@@ -1,0 +1,337 @@
+/* =========================
+   ROOT & GLOBAL
+========================= */
+
+:root {
+    --nav-height: 70px;
+    --primary-green: #2f5d50;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f5f7f6;
+    margin: 0;
+    padding-top: var(--nav-height);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar.custom-nav {
+    height: var(--nav-height);
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+    color: #fff;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero-premium {
+    position: relative;
+    height: calc(100vh - var(--nav-height));
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+/* BACKGROUND LAYER (ZOOMS ONLY) */
+.hero-premium::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+        url("../images/hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transform: scale(1);
+    transform-origin: center center;
+    animation: slowZoom 20s ease-in-out infinite alternate;
+
+    z-index: 1;
+}
+
+/* HERO CONTENT */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 1.5s ease-out;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* =========================
+   HERO MICRO DETAIL
+========================= */
+
+.scroll-hint {
+    position: absolute;
+    bottom: 25px;
+    z-index: 2;
+    font-size: 14px;
+    opacity: 0.7;
+    animation: bounce 2s infinite;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slowZoom {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section-light {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.section-sub {
+    max-width: 600px;
+    margin: auto;
+    opacity: 0.8;
+    text-align: center;
+}
+
+/* =========================
+   FEATURE CARDS
+========================= */
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+}
+
+/* =========================
+   PLACE CARDS
+========================= */
+
+.place-card {
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.place-card img {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.place-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.18);
+}
+
+/* AUTO APPEAR ANIMATION */
+.place-appear {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: appearUp 1.2s ease forwards;
+}
+
+@keyframes appearUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   ACTION AREA
+========================= */
+
+.action-area {
+    margin-top: 15px;
+}
+
+/* =========================
+   TOAST MESSAGE
+========================= */
+
+.toast-box {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--primary-green);
+    color: white;
+    padding: 14px 22px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    z-index: 2000;
+}
+
+.toast-box.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   LOGIN PAGE
+========================= */
+
+.login-bg {
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+        url("../images/hero.jpg");
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 40px 35px;
+    width: 360px;
+    border-radius: 22px;
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.25),
+        0 10px 20px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    animation: fadeUp 1.2s ease;
+}
+
+.login-box h2 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 5px;
+}
+
+.login-sub {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 25px;
+}
+
+.login-box input {
+    height: 45px;
+    border-radius: 12px;
+}
+
+.login-box button {
+    height: 45px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+/* =========================
+   QUOTE SECTION
+========================= */
+
+.quote-section {
+    background: var(--primary-green);
+    color: white;
+    padding: 70px;
+    text-align: center;
+    font-style: italic;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    background: #111;
+    color: #aaa;
+    padding: 20px;
+    text-align: center;
+}
+
+button {
+    transition: all 0.3s ease;
+}

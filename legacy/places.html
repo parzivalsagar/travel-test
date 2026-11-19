@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Places | Chikkamagaluru</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR (NO TRAVEL PLAN HERE) -->
+    <nav class="navbar navbar-dark custom-nav">
+        <div class="container">
+            <span class="navbar-brand fw-bold">The Chikkamagaluru Escape</span>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="container mt-5">
+        <h2 class="text-center mb-2">Places to Explore 🌄</h2>
+
+        <!-- OPTIONAL STATIC QUOTE -->
+        <p class="text-center fst-italic mt-2">
+            “Take only memories, leave only footprints.”
+        </p>
+
+        <!-- PLACES GRID -->
+        <div class="row mt-4" id="places"></div>
+    </div>
+
+    <!-- TOAST MESSAGE -->
+    <div class="toast-box" id="toast">
+        <span id="toast-msg"></span>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Places Logic -->
+    <script src="places.js"></script>
+
+</body>
+
+</html>
